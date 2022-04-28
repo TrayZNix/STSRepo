@@ -1,6 +1,5 @@
 package com.salesianostriana.dam.webapp;
 
-import org.springframework.boot.autoconfigure.web.reactive.WebFluxAutoConfiguration.WelcomePageConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,10 +23,10 @@ public class Controlador {
 	}
 
 	@GetMapping("/saludo3")
-	public String welcome3(Model model) {
+	public String welcome3(@RequestParam(name = "colorEnlace", required = false, defaultValue = "Mundo") String colorEnlace, Model model) {
 		Persona p = new Persona("Ángel", "Naranjo González");
 		model.addAttribute("nombre", p.getNombre());
-		model.addAttribute("colorEnlace", "rojo");
+		model.addAttribute("colorEnlace", "morado");
 		model.addAttribute("saludo", "Hola Mundo!!!");
 		model.addAttribute("mensaje", "Me llena de orgullo y satisfacción...");
 		model.addAttribute("url", "https://triana.salesianos.edu");
